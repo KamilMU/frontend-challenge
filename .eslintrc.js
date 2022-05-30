@@ -25,6 +25,8 @@ module.exports = {
   ],
   rules: {
     'react/jsx-no-bind': 'off',
+    'global-require': 'off',
+    'react/no-array-index-key': 'off',
     "linebreak-style": 0,
     'default-param-last': 'off',
     'no-console': 'off',

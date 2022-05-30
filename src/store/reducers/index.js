@@ -20,13 +20,13 @@ export const reducer = (state = initialState, action) => {
     case CHANGE_FETCHING_STATUS:
       return {
         ...state,
-        fetchingStatus: action.payload
-      }
+        fetchingStatus: action.payload,
+      };
     case CHANGE_CURRENT_PAGE_NUMBER:
       return {
         ...state,
-        currentPage: state.currentPage + 1
-      }
+        currentPage: state.currentPage + 1,
+      };
     case TOGGLE_CAT_TO_FAVOURITES:
       return {
         ...state,

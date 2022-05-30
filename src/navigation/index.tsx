@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import PageNotFound from '../components/PageNotFound/PageNotFound';
 import AllCats from '../containers/AllCats/AllCats';
@@ -15,4 +15,4 @@ export const navigation = (
       <Route path="*" component={PageNotFound} />
     </Switch>
   </Router>
-)
+);

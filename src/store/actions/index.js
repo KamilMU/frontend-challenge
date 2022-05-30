@@ -14,18 +14,14 @@ export const fetchCats = (currentPage) => async (dispatch) => {
   dispatch({ type: FETCH_CATS, payload: response.data });
 };
 
-export const changeFetchingStatus = (fetchingStatus) => {
-  return {
-    type: CHANGE_FETCHING_STATUS,
-    payload: fetchingStatus
-  }
-}
+export const changeFetchingStatus = (fetchingStatus) => ({
+  type: CHANGE_FETCHING_STATUS,
+  payload: fetchingStatus,
+});
 
-export const changeCurrentPageNumber = () => {
-  return {
-    type: CHANGE_CURRENT_PAGE_NUMBER
-  }
-}
+export const changeCurrentPageNumber = () => ({
+  type: CHANGE_CURRENT_PAGE_NUMBER,
+});
 
 export const toggleCatToFavourites = (catId, cat) => ({
   type: TOGGLE_CAT_TO_FAVOURITES,

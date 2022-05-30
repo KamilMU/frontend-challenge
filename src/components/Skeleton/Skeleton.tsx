@@ -5,7 +5,7 @@ import './styles.scss';
 export default function Skeleton() {
   return (
     <div className="skeleton-container">
-      <div></div>
+      <div />
     </div>
-  )
-};
+  );
+}

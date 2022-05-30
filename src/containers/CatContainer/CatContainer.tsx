@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Cat from '../../components/Cat/Cat';
 import { toggleCatToFavourites } from '../../store/actions';
@@ -11,9 +11,9 @@ interface Props {
 export default function CatContainer({ cat }: Props) {
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const dispatch = useDispatch();
-  
+
   function addCatToFavoutiteList() {
-    dispatch(toggleCatToFavourites(cat.id, cat))
+    dispatch(toggleCatToFavourites(cat.id, cat));
     setIsAddedToFav(!isAddedToFav);
   }
 
