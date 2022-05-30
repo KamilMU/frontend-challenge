@@ -2,11 +2,9 @@ import React from 'react';
 
 import './styles.scss';
 
-export function Skeleton() {
+export default function Skeleton() {
   return (
     <div className="skeleton-container">
-      <div></div>
-      <div></div>
       <div></div>
     </div>
   )

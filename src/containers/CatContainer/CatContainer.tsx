@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Cat from '../../components/Cat/Cat';
 import { toggleCatToFavourites } from '../../store/actions';
@@ -8,30 +8,26 @@ interface Props {
   cat: CatType,
 }
 
-export default function JokeContainer({ cat }: Props) {
+export default function CatContainer({ cat }: Props) {
   const [isAddedToFav, setIsAddedToFav] = useState(false);
-  const [catStatus, setCatStatus] = useState('');
   const dispatch = useDispatch();
 
-  function addJokeToFavoutiteList() {
-    dispatch(toggleCatToFavourites(cat.id, cat));
-    setIsAddedToFav(!isAddedToFav);
+  useEffect(() => {
+    console.log(isAddedToFav, 'isAddedToFav');
+  }, [isAddedToFav]);
 
-    if (!isAddedToFav) {
-      setTimeout(() => setCatStatus('added to favorites!'), 0);
-      setTimeout(() => setCatStatus(''), 1000);
-    }
-    if (isAddedToFav) {
-      setTimeout(() => setCatStatus('removed from favorites!'), 0);
-      setTimeout(() => setCatStatus(''), 1000);
-    }
+  useEffect(() => {
+    dispatch(toggleCatToFavourites(cat.id, cat))
+  }, [isAddedToFav]);
+
+  async function addCatToFavoutiteList() {
+    setIsAddedToFav(!isAddedToFav);
   }
 
   return (
     <Cat
       cat={cat}
-      onFavouriteClick={addJokeToFavoutiteList}
-      catStatus={catStatus}
+      onFavouriteClick={addCatToFavoutiteList}
     />
   );
 }

@@ -1,10 +1,13 @@
 import {
+  CHANGE_CURRENT_PAGE_NUMBER,
+  CHANGE_FETCHING_STATUS,
   FETCH_CATS, TOGGLE_CAT_TO_FAVOURITES,
 } from '../../constants';
 
 const initialState = {
   allCats: [],
   favouriteCats: [],
+  currentPage: 1,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -12,29 +15,39 @@ export const reducer = (state = initialState, action) => {
     case FETCH_CATS:
       return {
         ...state,
-        allCats: action.payload,
+        allCats: [...state.allCats || [], ...action.payload],
       };
+    case CHANGE_FETCHING_STATUS:
+      return {
+        ...state,
+        fetchingStatus: action.payload
+      }
+    case CHANGE_CURRENT_PAGE_NUMBER:
+      return {
+        ...state,
+        currentPage: state.currentPage + 1
+      }
     case TOGGLE_CAT_TO_FAVOURITES:
       return {
         ...state,
-        allCats: state.allCats.map((joke) => {
-          if (joke.favourited && joke.id === action.jokeId) {
+        allCats: state.allCats.map((cat) => {
+          if (cat.favourited && cat.id === action.catId) {
             return {
-              ...joke,
-              favourited: false,
+              ...cat,
+              favourite: false,
             };
           }
 
-          if (!joke.favourited && joke.id === action.jokeId) {
+          if (!cat.favourited && cat.id === action.catId) {
             return {
-              ...joke,
-              favourited: true,
+              ...cat,
+              favourite: true,
             };
           }
 
-          return joke;
+          return cat;
         }),
-        favouriteCats: state.allCats.filter((joke) => joke.favourited),
+        favouriteCats: state.allCats.filter((cat) => cat.favourite),
       };
     default:
       return state;

@@ -5,10 +5,9 @@ import './styles.scss';
 interface Props {
   cat: CatType,
   onFavouriteClick: () => void,
-  catStatus: string,
 }
 
-export default function Joke({ cat, onFavouriteClick, catStatus }: Props) {
+export default function Cat({ cat, onFavouriteClick }: Props) {
   return (
     <div className="cat-container" data-testid="cat-item">
       <img src={cat.url} alt="" />
@@ -18,11 +17,16 @@ export default function Joke({ cat, onFavouriteClick, catStatus }: Props) {
           className="cat-container__fav-icon"
           onClick={onFavouriteClick}
           aria-hidden="true"
-          style={{ opacity: cat?.favourited ? 1 : 0.3 }}
+          style={{ opacity: cat?.favourite ? .3 : 1 }}
         >
-          ⭐
+          <img src={
+            cat?.favourite ? (
+              require("../../icons/not_fav.png")
+            ) : (
+              require("../../icons/fav.png")
+            )
+          } alt="" />
         </span>
-        <div className="cat-cat-status">{catStatus}</div>
       </div>
     </div>
   );

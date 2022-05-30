@@ -1,10 +1,10 @@
 import React from 'react';
-import Skeleton from '../../components/Skeleton';
+import Skeleton from '../../components/Skeleton/Skeleton';
 
-export function SkeletonList() {
+export default function SkeletonList() {
   return (
     <>
-      {Array(10).fill(10).map((skeleton, index) => (
+      {Array(5).fill(5).map((skeleton, index) => (
         <Skeleton key={index} />
       ))}
     </>
