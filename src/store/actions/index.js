@@ -9,7 +9,7 @@ export const fetchCats = (currentPage) => async (dispatch) => {
   let response;
 
   if (!response) dispatch({ type: FETCH_CATS, payload: [] });
-  response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=5&page==${currentPage}&order=Desc`);
+  response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page==${currentPage}&order=Desc`);
   console.log(response.data, 'res');
   dispatch({ type: FETCH_CATS, payload: response.data });
 };

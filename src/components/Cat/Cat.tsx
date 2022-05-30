@@ -17,13 +17,13 @@ export default function Cat({ cat, onFavouriteClick }: Props) {
           className="cat-container__fav-icon"
           onClick={onFavouriteClick}
           aria-hidden="true"
-          style={{ opacity: cat?.favourite ? .3 : 1 }}
+          style={{ opacity: cat?.favourite ? 1 : .3 }}
         >
           <img src={
             cat?.favourite ? (
-              require("../../icons/not_fav.png")
-            ) : (
               require("../../icons/fav.png")
+            ) : (
+              require("../../icons/not_fav.png")
             )
           } alt="" />
         </span>

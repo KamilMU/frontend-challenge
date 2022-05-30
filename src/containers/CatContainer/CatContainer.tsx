@@ -11,16 +11,9 @@ interface Props {
 export default function CatContainer({ cat }: Props) {
   const [isAddedToFav, setIsAddedToFav] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(isAddedToFav, 'isAddedToFav');
-  }, [isAddedToFav]);
-
-  useEffect(() => {
+  
+  function addCatToFavoutiteList() {
     dispatch(toggleCatToFavourites(cat.id, cat))
-  }, [isAddedToFav]);
-
-  async function addCatToFavoutiteList() {
     setIsAddedToFav(!isAddedToFav);
   }
 

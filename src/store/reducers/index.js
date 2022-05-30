@@ -31,14 +31,14 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         allCats: state.allCats.map((cat) => {
-          if (cat.favourited && cat.id === action.catId) {
+          if (cat.favourite && cat.id === action.catId) {
             return {
               ...cat,
               favourite: false,
             };
           }
 
-          if (!cat.favourited && cat.id === action.catId) {
+          if (!cat.favourite && cat.id === action.catId) {
             return {
               ...cat,
               favourite: true,

@@ -6,11 +6,7 @@ import CatContainer from '../CatContainer/CatContainer';
 
 function FavouriteCats() {
   const favoriteCats = useSelector((state: IRootState) => state.favouriteCats);
-
-  useEffect(() => {
-    console.log(favoriteCats, 'favoriteCats');
-  }, [favoriteCats]);
-
+  
   return (
     <div className="cats-list-container">
       {favoriteCats?.length ? favoriteCats.map((cat) => (

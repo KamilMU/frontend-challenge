@@ -29,16 +29,6 @@ export default function AllCats() {
     }
   }, [])
 
-  useEffect(() => {
-    console.log(allCats, 'allCats');
-    
-  }, [allCats]);
-
-  useEffect(() => {
-    console.log(favouriteCats, 'favouriteCats');
-    
-  }, [allCats]);
-
   function scrollHandler(e: any) {
     console.log(e.target.documentElement.scrollHeight, 'xxxxxx');
     
